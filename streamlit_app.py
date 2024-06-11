@@ -238,8 +238,8 @@ def predictions():
             cursor.execute('''
                 SELECT id FROM predictions WHERE user_id = ? AND game_id = ?
             ''', (user_id, game_id))
-            prediction_id = cursor.fetchone()
-            st.write("prediction:", prediction_id)
+            prediction_id = cursor.fetchone()[0]
+            #st.write("prediction:", prediction_id)
             
 
             if prediction_id:
