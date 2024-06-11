@@ -359,7 +359,7 @@ def calculate_points():
                 WHERE predictions.game_id = ? AND predictions.user_id = ?
             ''',(match['id'], player[0]))
             predictions = cursor.fetchall()
-            #st.write("Predictions:", predictions)
+            st.write("Predictions:", predictions)
         
             cursor.execute('''
                 SELECT games.actual_score_team1, games.actual_score_team2
@@ -367,8 +367,8 @@ def calculate_points():
                 Where games.id = ?
             ''',(match['id'],))
             results = cursor.fetchall()
-            #st.write(results)
-            #st.write("Results:", results)
+            
+            st.write("Results:", results)
             
             if predictions:
                 predicted_score_team1 = predictions[1]
