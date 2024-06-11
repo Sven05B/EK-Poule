@@ -238,7 +238,11 @@ def predictions():
             cursor.execute('''
                 SELECT id FROM predictions WHERE user_id = ? AND game_id = ?
             ''', (user_id, game_id))
-            prediction_id = cursor.fetchone()[0]
+            fetch = cursor.fetchone()
+            if type(fetch) == int:
+                prediction_id = fetch
+            else:
+                prediction_id = fetch[0]
             #st.write("prediction:", prediction_id)
             
 
