@@ -114,13 +114,13 @@ def register():
     st.title("Aanmelden")
     new_user = st.text_input("Gebruikersnaam")
     new_password = st.text_input("Wachtwoord", type="password")
-    if st.button("Register"):
+    if st.button("Aanmelden"):
         try:
             cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (new_user, new_password))
             conn.commit()
-            st.success("You have successfully created an account")
+            st.success("Account aangemaakt! Je kunt nu inloggen")
         except sqlite3.IntegrityError:
-            st.error("Username already exists")
+            st.error("Gebruikersnaam bestaat al")
 
 def login():
     st.title("Inloggen")
@@ -132,7 +132,7 @@ def login():
         if user_data:
             st.session_state.logged_in = True
             st.session_state.user_id = user_data[0]
-            st.success("Login succesvol! klik nogmaals op inloggen om door te gaan")
+            st.success("Login succesvol! Klik nogmaals op inloggen om door te gaan")
         else:
             st.error("Incorrect username or password")
             
@@ -371,10 +371,10 @@ def calculate_points():
             #st.write("Results:", results)
             
             if predictions:
-                predicted_score_team1 = predictions[0][1]
-                predicted_score_team2 = predictions[0][2]
-                actual_score_team1 = results[0][0]
-                actual_score_team2 = results[0][1]
+                predicted_score_team1 = predictions[1]
+                predicted_score_team2 = predictions[2]
+                actual_score_team1 = results[0]
+                actual_score_team2 = results[1]
                 #st.write("prediction:", predicted_score_team1, predicted_score_team2)
                 #st.write("Results:", actual_score_team1, actual_score_team2)
                 
