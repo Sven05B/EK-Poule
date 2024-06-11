@@ -319,7 +319,7 @@ def enter_scores():
                 SELECT games.actual_score_team1
                 FROM scores
                 WHERE id = ?
-            ''', (match['id']-1,))
+            ''', (match['id'],))
             row = cursor.fetchone()
     
             if row is None:
