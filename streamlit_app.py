@@ -42,32 +42,32 @@ conn.commit()
 
 def get_flag_image(country):
     country_flag = {
-        "Duitsland": "flags/duitsland.png",
-        "Schotland": "flags/schotland.png",
-        "Hongarije": "flags/hongarije.png",
-        "Zwitserland": "flags/zwitserland.png",
-        "Spanje": "flags/spanje.png",
-        "Kroatië": "flags/kroatie.png",
-        "Italië": "flags/italie.png",
-        "Albanië": "flags/albanie.png",
-        "Slovenië": "flags/slovenie.png",
-        "Denemarken": "flags/denemarken.png",
-        "Servië": "flags/servie.png",
-        "Engeland": "flags/engeland.png",
-        "Polen": "flags/polen.png",
-        "Nederland": "flags/nederland.png",
-        "Oostenrijk": "flags/oostenrijk.png",
-        "Frankrijk": "flags/frankrijk.png",
-        "België": "flags/belgie.png",
-        "Slowakije": "flags/slowakije.png",
-        "Roemenië": "flags/roemenie.png",
-        "Oekraïne": "flags/oekraine.png",
-        "Turkije": "flags/turkije.png",
-        "Georgië": "flags/georgie.png",
-        "Portugal": "flags/portugal.png",
-        "Tsjechië": "flags/tsjechie.png"
+        "Duitsland": "duitsland.png",
+        "Schotland": "schotland.png",
+        "Hongarije": "hongarije.png",
+        "Zwitserland": "zwitserland.png",
+        "Spanje": "spanje.png",
+        "Kroatië": "kroatie.png",
+        "Italië": "italie.png",
+        "Albanië": "albanie.png",
+        "Slovenië": "slovenie.png",
+        "Denemarken": "denemarken.png",
+        "Servië": "servie.png",
+        "Engeland": "engeland.png",
+        "Polen": "polen.png",
+        "Nederland": "nederland.png",
+        "Oostenrijk": "oostenrijk.png",
+        "Frankrijk": "frankrijk.png",
+        "België": "belgie.png",
+        "Slowakije": "slowakije.png",
+        "Roemenië": "roemenie.png",
+        "Oekraïne": "oekraine.png",
+        "Turkije": "turkije.png",
+        "Georgië": "georgie.png",
+        "Portugal": "portugal.png",
+        "Tsjechië": "tsjechie.png"
     }
-    return country_flag.get(country, "flags/default.png")
+    return country_flag.get(country)
     
 
 # List of games for Euro 2024
