@@ -370,11 +370,11 @@ def calculate_points():
             
             st.write("Results:", results)
             
-            if predictions:
+            if predictions and results:
                 predicted_score_team1 = predictions[0][1]
                 predicted_score_team2 = predictions[0][2]
-                actual_score_team1 = results[0]
-                actual_score_team2 = results[1]
+                actual_score_team1 = results[0][0]
+                actual_score_team2 = results[0][1]
                 #st.write("prediction:", predicted_score_team1, predicted_score_team2)
                 #st.write("Results:", actual_score_team1, actual_score_team2)
                 
