@@ -316,9 +316,7 @@ def enter_scores():
           
         if st.button("Score bevestigen", key=f"{match['id']}_save"):
             cursor.execute('''
-                SELECT games.actual_score_team1
-                FROM scores
-                WHERE id = ?
+                SELECT id FROM games WHERE id = ? AND actual_score_team1 IS NOT NULL AND actual_score_team2 IS NOT NULL
             ''', (match['id'],))
             row = cursor.fetchone()
     
