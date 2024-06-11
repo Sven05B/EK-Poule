@@ -473,7 +473,7 @@ else:
     show_login_register()
     
    
-for i in range(10):
+for i in range(15):
     st.text("")    
 st.markdown("***")
     
