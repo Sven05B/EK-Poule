@@ -436,7 +436,7 @@ def leaderboard():
     st.dataframe(df)
 
 def sortingHelp(e):
-    return e[1][0][0]
+    return e[1]
     
 
 def update_scores_and_leaderboard():
