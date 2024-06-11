@@ -239,7 +239,7 @@ def predictions():
                 SELECT id FROM predictions WHERE user_id = ? AND game_id = ?
             ''', (user_id, game_id))
             prediction_id = cursor.fetchone()
-            #st.write("prediction:", prediction_id)
+            st.write("prediction:", prediction_id)
             
 
             if prediction_id:
@@ -247,7 +247,7 @@ def predictions():
                     UPDATE predictions 
                     SET predicted_score_team1 = ?, predicted_score_team2 = ?
                     WHERE id = ?
-                ''', (score_team1, score_team2, prediction_id,))
+                ''', (score_team1, score_team2, prediction_id))
             else:
                 cursor.execute('''
                     INSERT INTO predictions (user_id, game_id, predicted_score_team1, predicted_score_team2)
