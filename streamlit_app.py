@@ -323,7 +323,7 @@ def enter_scores():
             if row is None:
                 cursor.execute('''
                     INSERT INTO games 
-                    VALUES actual_score_team1 = ?, actual_score_team2 = ?, game_id = ?
+                    VALUES (actual_score_team1 = ?, actual_score_team2 = ?, game_id = ?)
                 ''', (score_team1, score_team2, match['id']))
             else:
                 cursor.execute('''
