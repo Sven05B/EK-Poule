@@ -313,13 +313,26 @@ def enter_scores():
         with col4:
             st.image(get_flag_image(match['team_2']), width=100)
         
-        
+          
         if st.button("Score bevestigen", key=f"{match['id']}_save"):
             cursor.execute('''
-                UPDATE games 
-                SET actual_score_team1 = ?, actual_score_team2 = ? 
+                SELECT games.actual_score_team1
+                FROM scores
                 WHERE id = ?
-            ''', (score_team1, score_team2, match['id']))
+            ''', (match['id']-1,))
+            row = cursor.fetchone()
+    
+            if row is None:
+                cursor.execute('''
+                    INSERT INTO games 
+                    VALUES actual_score_team1 = ?, actual_score_team2 = ?, game_id = ?
+                ''', (score_team1, score_team2, match['id']))
+            else:
+                cursor.execute('''
+                    UPDATE games 
+                    SET actual_score_team1 = ?, actual_score_team2 = ? 
+                    WHERE id = ?
+                ''', (score_team1, score_team2, match['id']))
             conn.commit()
             st.success(f"Scores for {match['team_1']} vs {match['team_2']} saved successfully!")
             update_scores_and_leaderboard()
@@ -366,6 +379,7 @@ def calculate_points():
                 FROM games
                 Where games.id = ?
             ''',(match['id'],))
+            st.write
             results = cursor.fetchall()
             
             st.write("Results:", results)
