@@ -239,10 +239,10 @@ def predictions():
                 SELECT id FROM predictions WHERE user_id = ? AND game_id = ?
             ''', (user_id, game_id))
             fetch = cursor.fetchone()
-            if type(fetch) == int:
-                prediction_id = fetch
-            else:
+            if type(fetch) == tuple:
                 prediction_id = fetch[0]
+            else:
+                prediction_id = fetch
             #st.write("prediction:", prediction_id)
             
 
